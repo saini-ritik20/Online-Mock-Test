@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{%block title%}OTS - Test Result {%endblock%}
+{%block top%}
+<a href="{% url 'OTS:registrationForm' %}">Signup</a>
+<a href="{% url 'OTS:logout' %}">Logout</a>
+{%endblock%}
+
+{%block content%}
+  <h1>Test Result</h1>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Attempt</th>
+      <th>Right</th>
+      <th>Wrong</th>
+      <th>Points</th>
+    </tr>
+    <tr>
+      <td>{{ result.date }}</td>
+      <td>{{ result.time }}</td>
+      <td>{{ result.attempt }}  {{ result.total_questions }}</td>
+      <td>{{ result.right }}</td>
+      <td>{{ result.wrong }}</td>
+      <td>{{ result.points }}</td>
+    </tr>
+  </table>
+  <h2>Test Summary</h2>
+  <p>Questions Attempted: {{result.attempt }}</p>
+  <p>Correct Answers: {{ result.right }}</p>
+  <p>Wrong Answers: {{ result.wrong }}</p>
+  <p>Points Earned: {{ result.points }}</p>
+{%endblock%}
